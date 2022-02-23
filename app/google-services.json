@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736667483184",
+    "project_id": "eazyeat-5e189",
+    "storage_bucket": "eazyeat-5e189.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736667483184:android:5febd42ab7838927d981f5",
+        "android_client_info": {
+          "package_name": "com.example.eazyeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736667483184-h6u0rugsr8umgrfdtasabbe3pq5421t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArcxR4v-c9RK_axj8EYGJUJ2pDtbe5Vis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736667483184-h6u0rugsr8umgrfdtasabbe3pq5421t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

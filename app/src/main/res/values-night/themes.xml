@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Eazyeat" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorePrimario</item>
+        <item name="colorPrimaryVariant">@color/colorePrimario</item>
+        <item name="colorOnPrimary">@color/testo</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/coloreSecondario</item>
+        <item name="colorSecondaryVariant">@color/coloreSecondario</item>
+        <item name="colorOnSecondary">@color/testo</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="actionMenuTextColor">@color/testo</item>
+        <item name="android:itemTextAppearance">@color/testo</item>
+    </style>
+</resources>

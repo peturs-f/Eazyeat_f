@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity_2);
-        Intent i = getIntent(), back = new Intent(getApplicationContext(), ScrollingActivity.class);
+        Intent back = new Intent(getApplicationContext(), ScrollingActivity.class);
         final User[] utDB = {new User()};
 
         EditText email = (EditText) findViewById(R.id.etxEmail);

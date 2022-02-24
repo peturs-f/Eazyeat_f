@@ -19,7 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_actvity);
-        Intent r = getIntent(), back = new Intent(getApplicationContext(), ScrollingActivity.class);
+        Intent back = new Intent(getApplicationContext(), ScrollingActivity.class);
 
         EditText nome = (EditText) findViewById(R.id.extNome);
         EditText mail = (EditText) findViewById(R.id.etxMailR);

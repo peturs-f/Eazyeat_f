@@ -100,7 +100,7 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(srcProdotto.getUrl().toString().equals(""))
-                    Snackbar.make(view, "Il prodotto è inesistente", Snackbar.LENGTH_LONG)
+                    Snackbar.make(view, "Inserire un codice del prodotto", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 else {                                                                              // Ricerca di ricette simili al prodotto su Google
                     srcProdotto.loadUrl("https://www.google.com/search?q=" + srcProdotto.getUrl().substring(51).replace('-', ' ') + " ricette");

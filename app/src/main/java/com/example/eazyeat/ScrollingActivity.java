@@ -44,12 +44,15 @@ public class ScrollingActivity extends AppCompatActivity {
         CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(getTitle());
 
-        EditText codP = (EditText) findViewById(R.id.etxCodiceProdotto);                            // WebView per la visualizzazione del Browser integrata
-        WebView srcProdotto = (WebView) findViewById(R.id.wevPaginaProdotto);
+        EditText codP = (EditText) findViewById(R.id.etxCodiceProdotto);
+        WebView srcProdotto = (WebView) findViewById(R.id.wevPaginaProdotto);                       // WebView per la visualizzazione del Browser integrata
         srcProdotto.setVisibility(View.INVISIBLE);
         srcProdotto.setWebViewClient(new WebViewClient());
 
         FloatingActionButton fab = binding.fabCerca;                                                // Pulsante per accedere alla schermata di scansione del codice a barre
+        Button cerca = (Button) findViewById(R.id.btnCerca);                                        // Pulsante che permette la ricerca del codice del prodotto
+        Button ricette = (Button) findViewById(R.id.btnRicette);                                    // Pulsante che farà visualizzare le ricette simili al prodotto
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,15 +66,16 @@ public class ScrollingActivity extends AppCompatActivity {
 
                     Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(camera_intent, pic_id);
-                    test.analyze((ImageProxy) immagine);                                            // Errore nel passaggio dell'immagine
+                    test.analyze((ImageProxy) immagine);
                     Intent cod = getIntent();
 
                     Snackbar.make(view, "Codice - " + cod.getStringExtra("codice"), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     /**/
                     srcProdotto.loadUrl("https://it.openfoodfacts.org/product/" + cod.getStringExtra("codice"));
+                    codP.setText(cod.getStringExtra("codice"));
                     srcProdotto.setVisibility(View.VISIBLE);
-                     /**/
+                    /**/
                 }
                 else {
                     Snackbar.make(view, "E' necessario aver effettuato il Login per poter scansionare il prodotto ", Snackbar.LENGTH_LONG)
@@ -80,8 +84,6 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
 
-
-        Button cerca = (Button) findViewById(R.id.btnCerca);                                        // Pulsante che permette la ricerca del codice del prodotto
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,13 +97,14 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
 
-        Button ricette = (Button) findViewById(R.id.btnRicette);                                    // Pulsante che farà visualizzare le ricette simili al prodotto
         ricette.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(srcProdotto.getUrl().toString().equals(""))
-                    Snackbar.make(view, "Inserire un codice del prodotto", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                // srcProdotto.loadUrl("https://it.openfoodfacts.org/product/" + codP.getText().toString() + "/");
+                if(srcProdotto.getUrl().toString().equals("")) {
+                    srcProdotto.loadUrl("https://www.google.com/search?q=" + codP.getText().toString() + " ricette");
+                    srcProdotto.setVisibility(View.VISIBLE);
+                }
                 else {                                                                              // Ricerca di ricette simili al prodotto su Google
                     srcProdotto.loadUrl("https://www.google.com/search?q=" + srcProdotto.getUrl().substring(51).replace('-', ' ') + " ricette");
                     srcProdotto.setVisibility(view.VISIBLE);

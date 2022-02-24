@@ -29,7 +29,6 @@ import com.google.mlkit.vision.common.InputImage;
 public class ScrollingActivity extends AppCompatActivity {
 
     private ActivityScrollingBinding binding;
-    private User utente = new User();
     private final int pic_id = 123;
     private InputImage immagine = null;
 
@@ -67,12 +66,12 @@ public class ScrollingActivity extends AppCompatActivity {
                     test.analyze((ImageProxy) immagine);                                            // Errore nel passaggio dell'immagine
                     Intent cod = getIntent();
 
-                    Snackbar.make(view, "Codice - " + cod.hasCategory("codice"), Snackbar.LENGTH_LONG)
+                    Snackbar.make(view, "Codice - " + cod.getStringExtra("codice"), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
-                    /*
-                    srcProdotto.loadUrl("https://it.openfoodfacts.org/product/" + codP.getText().toString());
+                    /**/
+                    srcProdotto.loadUrl("https://it.openfoodfacts.org/product/" + cod.getStringExtra("codice"));
                     srcProdotto.setVisibility(View.VISIBLE);
-                     */
+                     /**/
                 }
                 else {
                     Snackbar.make(view, "E' necessario aver effettuato il Login per poter scansionare il prodotto ", Snackbar.LENGTH_LONG)
